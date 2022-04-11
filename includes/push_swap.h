@@ -1,0 +1,127 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/06 16:07:27 by cjulienn          #+#    #+#             */
+/*   Updated: 2022/04/11 18:28:08 by cjulienn         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
+
+# include "../libft/libft.h"
+# include <stdlib.h>
+# include <unistd.h>
+# include <stdio.h>
+# include <limits.h>
+
+# define ALPHA		1
+# define BRAVO		2
+# define COMBINED	3
+
+# define UP			1
+# define DOWN		2
+
+# define CLOCK		1
+# define REVERSE	2
+
+typedef struct s_data
+{
+	int				i;
+	int				is_sorted;
+	int				stack_size;
+	int				counter;
+	int				*pile_begin;
+	int				*pile_a;
+	int				*pile_b;
+	int				size_a;
+	int				size_b;
+}					t_data;
+
+/* ACTIONS */
+
+/* push.c */
+int			pa(t_data *data, int *pile_a, int *pile_b);
+int			pb(t_data *data, int *pile_a, int *pile_b);
+/* rotate.c */
+int			rrab(t_data *data, int *pile, int a_or_b);
+int			rab(t_data *data, int *pile, int a_or_b);
+int			rr(t_data *data, int *pile_a, int *pile_b);
+int			rrr(t_data *data, int *pile_a, int *pile_b);
+/* swap.c */
+int			sab(t_data *data, int a_or_b, int *pile);
+int			ss(t_data *data, int *pile_a, int *pile_b);
+
+/* ALGOS */
+
+/* algo_big_nbrs_1.c */
+void		algo_big_nums(t_data *data);
+/* algo_big_nbrs_2.c */
+void		add_sorted_positions(t_data *data, t_stack *pile_a);
+int			organize_pile_bravo(t_data *data);
+void		empty_pile_bravo(t_data *data);
+/*algo_case_2.c*/
+void		algo_case_two_nums(t_data *data);
+/* algo_case_3.c */
+void		algo_case_three_nums(t_data *data, int *pile_a);
+/* algo_case_4.c */
+void		algo_case_four_nums(t_data *data);
+/* algo_case_5.c*/
+void		algo_case_five_nums(t_data *data);
+
+/* ARGS PROCESSING */
+
+/* check_args_validity_1.c */
+int			*check_args_are_valid(char **input, t_data *data);
+/* check_args_validity_2.c */
+int			check_if_already_sorted(int *nums, int stack_size);
+int			check_if_duplicates(int	*nums, int stack_size);
+int			is_int_compatible(const char *str);
+/* format_input.c */
+char		**format_input(int argc, char **argv, t_data *data);
+
+/* UTILS */
+
+/* algo_utils.c */
+int			is_within_interval(t_stack *pile_b, int *nums, int num_size);
+void		handle_within_interval(t_data *data, int *nums, int num_len);
+void		handle_outside_interval(t_data *data, int *nums);
+void		sort_param_top_b(t_data *data, int *nums, int num_len);
+int			*pile_to_int_arr(t_stack *pile);
+/* free.c */
+void		error_and_exit(t_data *data);
+void		free_stacks_and_exit(t_data *data);
+void		suppress_leaks_bfr_exit(t_data *data);
+void		free_split(char **split);
+/* interval.c */
+int			*find_interval(t_data *data, int a_or_b);
+/* manage_stacks.c */
+int			get_sorted_pos(t_data *data, int num);
+int			distance_to_top_pile(int value, t_data *data, int a_or_b);
+void		push_to_top_pile(t_data *data, int num, int pile_id);
+/* quicksort.c */
+void		ft_swap(int *a, int *b);
+int			*int_arr_dup(int *to_cpy, int arr_size);
+int			are_arr_equals(int *arr_a, int *arr_b, int arr_size);
+void		quicksort(int *nums, int begin, int end);
+
+/* FILE CONTAINING MAIN */
+
+/* push_swap.c */
+void		msg_writer(int fildes, char *msg, t_data *data);
+
+/* DEBUG UTILS : KILL BEFORE CORRECTION PROCESS*/
+
+/* debug_utils.c */
+void		*broken_malloc(void);
+void		leaks_tracking(void);
+void		msg_accept_input(void);
+void		is_stack_sorted(t_data *data, int pile_id);
+void		display_pile(t_data *data);
+void		final_verifs(t_data *data);
+
+#endif
