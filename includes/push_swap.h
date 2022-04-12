@@ -6,7 +6,7 @@
 /*   By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/06 16:07:27 by cjulienn          #+#    #+#             */
-/*   Updated: 2022/04/11 18:28:08 by cjulienn         ###   ########.fr       */
+/*   Updated: 2022/04/12 16:18:59 by cjulienn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ int			ss(t_data *data, int *pile_a, int *pile_b);
 /* algo_big_nbrs_1.c */
 void		algo_big_nums(t_data *data);
 /* algo_big_nbrs_2.c */
-void		add_sorted_positions(t_data *data, t_stack *pile_a);
 int			organize_pile_bravo(t_data *data);
 void		empty_pile_bravo(t_data *data);
 /*algo_case_2.c*/
@@ -87,22 +86,22 @@ char		**format_input(int argc, char **argv, t_data *data);
 /* UTILS */
 
 /* algo_utils.c */
-int			is_within_interval(t_stack *pile_b, int *nums, int num_size);
-void		handle_within_interval(t_data *data, int *nums, int num_len);
-void		handle_outside_interval(t_data *data, int *nums);
-void		sort_param_top_b(t_data *data, int *nums, int num_len);
-int			*pile_to_int_arr(t_stack *pile);
+void		sort_param_top_b(t_data *data, int *pile_a);
 /* free.c */
 void		error_and_exit(t_data *data);
 void		free_stacks_and_exit(t_data *data);
 void		suppress_leaks_bfr_exit(t_data *data);
 void		free_split(char **split);
 /* interval.c */
+void		handle_within_interval(t_data *data);
+void		handle_outside_interval(t_data *data, int *interval);
 int			*find_interval(t_data *data, int a_or_b);
 /* manage_stacks.c */
 int			get_sorted_pos(t_data *data, int num);
 int			distance_to_top_pile(int value, t_data *data, int a_or_b);
 void		push_to_top_pile(t_data *data, int num, int pile_id);
+int			distance_from_sorted_pos(int value, t_data *data,
+				int *pile, int a_or_b);
 /* quicksort.c */
 void		ft_swap(int *a, int *b);
 int			*int_arr_dup(int *to_cpy, int arr_size);

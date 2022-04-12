@@ -6,7 +6,7 @@
 /*   By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 16:36:08 by cjulienn          #+#    #+#             */
-/*   Updated: 2022/04/11 18:08:56 by cjulienn         ###   ########.fr       */
+/*   Updated: 2022/04/12 16:35:38 by cjulienn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	get_sorted_pos(t_data *data, int num)
 	cpy = int_arr_dup(data->pile_begin, data->stack_size);
 	if (!cpy)
 		free_stacks_and_exit(data);
-	quicksort(cpy, 0, data->size_a - 1);
+	quicksort(cpy, 0, data->stack_size - 1);
 	pos = 0;
 	while (cpy[pos] != num)
 		pos++;
@@ -81,29 +81,30 @@ void	push_to_top_pile(t_data *data, int num, int pile_id) // yet to test
 		&& distance_to_top_pile(num, data, BRAVO) == UP)
 	{
 		while (data->pile_b && data->pile_b[0] != num)
-			rab(&data->pile_b, BRAVO, data);
+			rab(data, data->pile_b, BRAVO);
 	}
 	else if (pile_id == BRAVO
 		&& distance_to_top_pile(num, data, BRAVO) == DOWN)
 	{
 		while (data->pile_b && data->pile_b[0] != num)
-			rrab(&data->pile_b, BRAVO, data);
+			rrab(data, data->pile_b, BRAVO);
 	}
 }
 
-int	distance_from_sorted_pos(int value, t_stack *pile) // check that later
+/*  */
+
+int	distance_from_sorted_pos(int value, t_data *data, int *pile, int a_or_b) // yet ot test
 {
 	int		pile_size;
 	int		dst_from_up;
 
-	pile_size = calc_pile_size(pile);
+	if (a_or_b == ALPHA)
+		pile_size = data->size_a;
+	else
+		pile_size = data->size_b;
 	dst_from_up = 0;
-	pile = pile->next;
-	while (pile && pile->num != value)
-	{
+	while (pile && pile[dst_from_up] != value)
 		dst_from_up++;
-		pile = pile->next;
-	}
 	if (dst_from_up < (pile_size / 2))
 		return (CLOCK);
 	else

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   actions_2.c                                        :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 12:01:17 by cjulienn          #+#    #+#             */
-/*   Updated: 2022/04/11 14:51:12 by cjulienn         ###   ########.fr       */
+/*   Updated: 2022/04/12 16:31:05 by cjulienn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ static int	rotate_feedback(int direction, int a_or_b, t_data *data) // seems fun
 
 int	rrab(t_data *data, int *pile, int a_or_b) // verify that
 {
-	int		tmp;
 	int		tmp_last;
 	int		last_index;
 	int		i;
@@ -73,7 +72,6 @@ int	rrab(t_data *data, int *pile, int a_or_b) // verify that
 
 int	rab(t_data *data, int *pile, int a_or_b) // yet to test
 {
-	int		tmp;
 	int		tmp_first;
 	int		last_index;
 	int		i;
@@ -114,7 +112,7 @@ int	rrr(t_data *data, int *pile_a, int *pile_b) // seems functionnal
 	int		res_rb;
 
 	res_ra = rrab(data, pile_a, COMBINED);
-	res_rb = rrab(pile_b, pile_a, COMBINED);
+	res_rb = rrab(data, pile_b, COMBINED);
 	if (!res_ra || !res_rb)
 		msg_writer(STDOUT_FILENO, "rrr\n", data);
 	data->counter++;

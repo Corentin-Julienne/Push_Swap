@@ -6,11 +6,33 @@
 /*   By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:21:25 by cjulienn          #+#    #+#             */
-/*   Updated: 2022/04/11 17:27:24 by cjulienn         ###   ########.fr       */
+/*   Updated: 2022/04/12 16:32:25 by cjulienn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
+
+/* rotate pile A until data->pile_b inf to data->pile_a,
+then push push data->pile_b to data->pile_a,
+then use sort_param_top_b to */
+
+void	handle_within_interval(t_data *data)
+{
+	while (data->pile_b[0] > data->pile_a[0])
+		rab(data, data->pile_a, ALPHA);
+	pa(data, data->pile_a, data->pile_b);
+	sort_param_top_b(data, data->pile_b);
+}
+
+/* when outside interval, push num at the top of pile B to top of pile A,
+then check if sorted. if not, just rotate the num at the bottom of pile A */
+
+void	handle_outside_interval(t_data *data, int *interval) // yet to test
+{
+	pa(data, data->pile_a, data->pile_b);
+	if (data->pile_a[0] > interval[0])
+		rab(data, data->pile_a, ALPHA);
+}
 
 /* find_interval function returns an array of two ints. 
 index 0 refers to smallest num in the stack 
@@ -22,6 +44,7 @@ static void	find_biggest(int *pile, int *int_arr)
 	int		i;
 
 	biggest = INT_MIN;
+	i = 0;
 	while (pile)
 	{
 		if (biggest < pile[i])
@@ -37,6 +60,7 @@ static void	find_smallest(int *pile, int *int_arr)
 	int		i;
 
 	smallest = INT_MAX;
+	i = 0;
 	while (pile)
 	{
 		if (smallest > pile[i])

@@ -6,7 +6,7 @@
 /*   By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 15:41:38 by cjulienn          #+#    #+#             */
-/*   Updated: 2022/04/11 18:57:47 by cjulienn         ###   ########.fr       */
+/*   Updated: 2022/04/12 16:40:58 by cjulienn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ static void	mistake_report(t_data *data, int pile_id)
 void	is_stack_sorted(t_data *data, int pile_id)
 {
 	int			*pile;
-	int			*nums;
 	int			*nums_dup;
 	int			stack_size;
 	
@@ -69,18 +68,17 @@ void	is_stack_sorted(t_data *data, int pile_id)
 	else
 		pile = data->pile_b;
 	stack_size = data->stack_size;
-	nums_dup = int_arr_dup(nums, stack_size);
+	nums_dup = int_arr_dup(pile, stack_size);
 	if (!nums_dup)
 		ft_putstr_fd("malloc error !!!!\n", STDERR_FILENO);
 	quicksort(nums_dup, 0, stack_size - 1);
-	if (are_arr_equals(nums, nums_dup, stack_size) == 1)
+	if (are_arr_equals(pile, nums_dup, stack_size) == 1)
 		ft_putstr_fd("stack is sorted !!!!\n", STDOUT_FILENO);
 	else
 	{
 		ft_putstr_fd("stack is not sorted !!!!\n", STDOUT_FILENO);
 		mistake_report(data, pile_id);
 	}
-	free(nums);
 	free(nums_dup);
 }
 

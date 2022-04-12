@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   actions_1.c                                        :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 12:01:15 by cjulienn          #+#    #+#             */
-/*   Updated: 2022/04/11 14:52:45 by cjulienn         ###   ########.fr       */
+/*   Updated: 2022/04/12 16:29:57 by cjulienn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	pa(t_data *data, int *pile_a, int *pile_b)
 	if (!updt_b)
 		free_stacks_and_exit(data); // change this function
 	i = 0;
-	while (i < data->pile_b)
+	while (i < data->size_b)
 	{
 		updt_b[i] = pile_b[i + 1];
 		i++;	
@@ -102,7 +102,7 @@ int	pb(t_data *data, int *pile_a, int *pile_b)
 	if (!updt_a)
 		free_stacks_and_exit(data); // change this function
 	i = 0;
-	while (i < data->pile_a)
+	while (i < data->size_a)
 	{
 		updt_a[i] = pile_a[i + 1];
 		i++;	

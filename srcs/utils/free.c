@@ -6,7 +6,7 @@
 /*   By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 16:29:30 by cjulienn          #+#    #+#             */
-/*   Updated: 2022/04/10 15:59:10 by cjulienn         ###   ########.fr       */
+/*   Updated: 2022/04/12 11:21:49 by cjulienn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,12 @@ Won't segfault if pile_a or pile_b == NULL */
 
 void	free_stacks_and_exit(t_data *data)
 {
-	free(data->nums);
+	if (data->pile_begin)
+		free(data->pile_begin);
+	if (data->pile_a)
+		free(data->pile_a);
+	if (data->pile_b)
+		free(data->pile_b);
 	error_and_exit(data);
 }
 
@@ -41,13 +46,16 @@ in case the program is succesfully terminated */
 
 void	suppress_leaks_bfr_exit(t_data *data)
 {
-	stack_clear(&data->pile_a);
-	stack_clear(&data->pile_b);
-	free(data->nums);
+	if (data->pile_begin)
+		free(data->pile_begin);
+	if (data->pile_a)
+		free(data->pile_a);
+	if (data->pile_b)
+		free(data->pile_b);
 	free(data);
 }
 
-void	free_split(char **split)
+void	free_split(char **split) // functionnal
 {
 	int		i;
 
