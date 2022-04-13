@@ -6,7 +6,7 @@
 /*   By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:21:25 by cjulienn          #+#    #+#             */
-/*   Updated: 2022/04/12 16:32:25 by cjulienn         ###   ########.fr       */
+/*   Updated: 2022/04/13 12:04:04 by cjulienn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	handle_within_interval(t_data *data)
 	while (data->pile_b[0] > data->pile_a[0])
 		rab(data, data->pile_a, ALPHA);
 	pa(data, data->pile_a, data->pile_b);
-	sort_param_top_b(data, data->pile_b);
+	sort_param_top_b(data, data->pile_a);
 }
 
 /* when outside interval, push num at the top of pile B to top of pile A,
@@ -45,7 +45,7 @@ static void	find_biggest(int *pile, int *int_arr)
 
 	biggest = INT_MIN;
 	i = 0;
-	while (pile)
+	while (pile && pile[i])
 	{
 		if (biggest < pile[i])
 			biggest = pile[i];
@@ -61,7 +61,7 @@ static void	find_smallest(int *pile, int *int_arr)
 
 	smallest = INT_MAX;
 	i = 0;
-	while (pile)
+	while (pile && pile[i])
 	{
 		if (smallest > pile[i])
 			smallest = pile[i];

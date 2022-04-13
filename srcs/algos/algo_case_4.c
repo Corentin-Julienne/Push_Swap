@@ -6,7 +6,7 @@
 /*   By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 19:30:42 by cjulienn          #+#    #+#             */
-/*   Updated: 2022/04/12 16:19:31 by cjulienn         ###   ########.fr       */
+/*   Updated: 2022/04/13 12:06:53 by cjulienn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	algo_case_four_nums(t_data *data)
 
 	pb(data, data->pile_a, data->pile_b);
 	algo_case_three_nums(data, data->pile_a);
-	// check that case
 	interval = find_interval(data, ALPHA);
 	if (!interval)
 		free_stacks_and_exit(data);

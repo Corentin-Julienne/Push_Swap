@@ -6,7 +6,7 @@
 /*   By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 18:56:01 by cjulienn          #+#    #+#             */
-/*   Updated: 2022/04/11 18:23:03 by cjulienn         ###   ########.fr       */
+/*   Updated: 2022/04/13 13:18:58 by cjulienn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,14 @@ static int	handle_case_interval(t_data *data, int num)
 /* return -1 if no change are to made in pile B order
 return the position to put in  the top of pile B if changes are needed */
 
-static int	find_good_pos(t_data *data) // yet to test
+static int	find_good_pos(t_data *data) // problem here
 {
 	int			target_pos;
 	int			gd_num;
 	int			diff;
 	int			i;
 
+	printf("go till good pos\n");
 	if (handle_case_interval(data, data->pile_a[0]) == 1)
 		return (-1);
 	target_pos = get_sorted_pos(data, data->pile_a[0]);

@@ -6,7 +6,7 @@
 /*   By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 15:41:38 by cjulienn          #+#    #+#             */
-/*   Updated: 2022/04/12 16:40:58 by cjulienn         ###   ########.fr       */
+/*   Updated: 2022/04/13 12:59:12 by cjulienn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void	display_pile(t_data *data)
 	}
 	if (data->pile_b)
 	{
-		ft_printf("PILE A\n");
+		ft_printf("PILE B\n");
 		i = 0;
 		while (i < data->size_b)
 		{
@@ -117,6 +117,7 @@ void	final_verifs(t_data *data)
 	ft_printf("Check if pile B is empty, it should be !!!!\n");
 	display_pile(data);
 	is_stack_sorted(data, ALPHA);
+	printf("sorted in %i moves\n", data->counter);
 	ft_printf("\n----------------------------------\n");
 	ft_printf("Program terminated ! Keep going, initiate !!!\n");
 }

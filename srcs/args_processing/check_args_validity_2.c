@@ -6,7 +6,7 @@
 /*   By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 13:26:27 by cjulienn          #+#    #+#             */
-/*   Updated: 2022/04/06 18:34:53 by cjulienn         ###   ########.fr       */
+/*   Updated: 2022/04/13 12:06:07 by cjulienn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ and -1 in case of malloc error */
 
 int	check_if_already_sorted(int *nums_input, int stack_size)
 {
-	int	*nums_dupl;
+	int			*nums_dupl;
 
 	nums_dupl = int_arr_dup(nums_input, stack_size);
 	if (!nums_dupl)

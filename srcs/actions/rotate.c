@@ -6,7 +6,7 @@
 /*   By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 12:01:17 by cjulienn          #+#    #+#             */
-/*   Updated: 2022/04/12 16:31:05 by cjulienn         ###   ########.fr       */
+/*   Updated: 2022/04/12 18:18:54 by cjulienn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static int	rotate_feedback(int direction, int a_or_b, t_data *data) // seems fun
 	return (0);
 }
 
-int	rrab(t_data *data, int *pile, int a_or_b) // verify that
+int	rrab(t_data *data, int *pile, int a_or_b) // tested
 {
 	int		tmp_last;
 	int		last_index;
@@ -60,36 +60,36 @@ int	rrab(t_data *data, int *pile, int a_or_b) // verify that
 	else
 		last_index = data->size_b - 1;
 	tmp_last = pile[last_index];
-	i = 1;
-	while (i < last_index)
+	i = last_index;
+	while (i >= 0)
 	{
-		pile[i] = pile[i + 1];
-		i++;
+		pile[i] = pile[i - 1];
+		i--;
 	}
 	pile[0] = tmp_last;
 	return (rotate_feedback(REVERSE, a_or_b, data));
 }
 
-int	rab(t_data *data, int *pile, int a_or_b) // yet to test
+int	rab(t_data *data, int *pile, int a_or_b) // tested
 {
 	int		tmp_first;
-	int		last_index;
+	int		stack_size;
 	int		i;
 	
 	if (!pile || !pile[0] || !pile[1])
 		return (1);
 	if (a_or_b == ALPHA)
-		last_index = data->size_a - 1;
+		stack_size = data->size_a;
 	else
-		last_index = data->size_b - 1;
+		stack_size = data->size_b;
 	tmp_first = pile[0];
-	i = last_index - 1;
-	while (i > 0)
+	i = 0;
+	while (i < stack_size)
 	{
-		pile[i] = pile[i - 1];
+		pile[i] = pile[i + 1];
 		i++;
 	}
-	pile[last_index] = tmp_first;
+	pile[stack_size - 1] = tmp_first;
 	return (rotate_feedback(CLOCK, a_or_b, data));
 }
 

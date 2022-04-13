@@ -6,7 +6,7 @@
 /*   By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 15:33:46 by cjulienn          #+#    #+#             */
-/*   Updated: 2022/04/11 18:07:01 by cjulienn         ###   ########.fr       */
+/*   Updated: 2022/04/13 13:02:24 by cjulienn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 
 /* simply returns the index of the number which is closest to top of pile A */
 
-static int	rtn_number_index(int dist_up, int dist_down, int from_bottom)
+static int	rtn_number_index(int dist_up, int dist_down,
+	int from_bottom, t_data *data)
 {
-	if (dist_up < dist_down)
-		return (dist_up);
+	if (dist_up <= dist_down)
+		return (data->pile_a[dist_up]);
 	else
-		return (from_bottom);
+		return (data->pile_a[from_bottom]);
 }
 
 /* scan number returns the first number from the index which pertains
@@ -41,7 +42,7 @@ static int	scan_number(t_data *data, int index_start, int index_end) // yet to t
 			break ;
 		dist_up++;
 	}
-	while (from_bottom > 0)
+	while (from_bottom >= 0)
 	{
 		if (get_sorted_pos(data, data->pile_a[from_bottom]) >= index_start
 			&& get_sorted_pos(data, data->pile_a[from_bottom]) <= index_end)
@@ -49,7 +50,7 @@ static int	scan_number(t_data *data, int index_start, int index_end) // yet to t
 		dist_down++;
 		from_bottom--;
 	}
-	return (rtn_number_index(dist_up, dist_down, from_bottom));
+	return (rtn_number_index(dist_up, dist_down, from_bottom, data));
 }
 
 /* choose num to push to top of pile A, then push it the most efficient way,
@@ -63,6 +64,8 @@ static void	process_chunk(t_data *data, int chunk_len,
 	while (chunk_len > 0)
 	{
 		num_to_push_up = scan_number(data, index_start, index_end);
+		printf("scanned num : %i\n", num_to_push_up);
+		sleep(2);
 		push_to_top_pile(data, num_to_push_up, ALPHA);
 		organize_pile_bravo(data);
 		chunk_len--;
@@ -75,13 +78,15 @@ depending of the size of pile A */
 
 static int	calc_chunk_num(t_data *data) // functionnal
 {
-	if (data->stack_size == 100)
-		return (5);
-	else if (data->stack_size == 500)
-		return (15);
-	else if (data->stack_size > 5 && data->stack_size < 100)
-		return (5);
-	else if (data->stack_size > 100 && data->stack_size < 500)
+	if (data->stack_size <= 20)
+		return (1);
+	else if (data->stack_size > 20 && data->stack_size <= 40)
+		return (2);
+	else if (data->stack_size > 40 && data->stack_size <= 60)
+		return (3);
+	else if (data->stack_size > 60 && data->stack_size <= 99)
+		return (4);
+	else if (data->stack_size >= 100 && data->stack_size < 500)
 		return (5);
 	else
 		return (15);
@@ -109,6 +114,8 @@ void	algo_big_nums(t_data *data)
 	last_chunk = data->stack_size % reps;
 	index_start = 0;
 	index_end = chunk_len - 1;
+	printf("reps : %i, index_start : %i, index_end : %i chunk_len : %i\n",
+		reps, index_start, index_end, chunk_len);
 	while (reps > 0)
 	{
 		process_chunk(data, chunk_len, index_start, index_end);

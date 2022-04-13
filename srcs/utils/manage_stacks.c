@@ -6,7 +6,7 @@
 /*   By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 16:36:08 by cjulienn          #+#    #+#             */
-/*   Updated: 2022/04/12 16:35:38 by cjulienn         ###   ########.fr       */
+/*   Updated: 2022/04/13 13:16:21 by cjulienn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ int	distance_to_top_pile(int value, t_data *data, int a_or_b) // yet to test
 	int			dst_from_up;
 	int			*pile;
 
+	printf("num : %i\n", value);
+	display_pile(data);
 	if (a_or_b == ALPHA)
 	{
 		pile_size = data->size_a;
