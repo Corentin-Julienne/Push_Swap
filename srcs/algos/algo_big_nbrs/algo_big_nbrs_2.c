@@ -6,7 +6,7 @@
 /*   By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 18:56:01 by cjulienn          #+#    #+#             */
-/*   Updated: 2022/04/13 13:18:58 by cjulienn         ###   ########.fr       */
+/*   Updated: 2022/04/13 18:15:28 by cjulienn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,11 @@ static int	handle_case_interval(t_data *data, int num)
 			i++;
 		}
 		free(interval);
+		interval = NULL;
 		return (1);
 	}
 	free(interval);
+	interval = NULL;
 	return (0);
 }
 
@@ -55,13 +57,12 @@ static int	find_good_pos(t_data *data) // problem here
 	int			diff;
 	int			i;
 
-	printf("go till good pos\n");
 	if (handle_case_interval(data, data->pile_a[0]) == 1)
 		return (-1);
 	target_pos = get_sorted_pos(data, data->pile_a[0]);
 	diff = 0;
 	i = 0;
-	while (data->pile_b || data->pile_b[i])
+	while (data->pile_b && data->pile_b[i])
 	{
 		if (get_sorted_pos(data, data->pile_b[i]) > target_pos
 			&& ((get_sorted_pos(data, data->pile_b[i]) - target_pos) < diff
@@ -103,20 +104,22 @@ Repeat this until Stack B is empty.*/
 
 void	empty_pile_bravo(t_data *data) // yet to test
 {
-	int		*nums;
-	int		stack_size;
+	int		*interval;
 
-	while (data->pile_b)
+	while (data->size_b > 0)
 	{
-		stack_size = data->size_b;
-		if (stack_size >= 2)
+		if (data->size_b >= 2)
 		{
-			nums = find_interval(data, BRAVO);
-			if (!nums)
+			interval = find_interval(data, BRAVO);
+			if (!interval)
 				free_stacks_and_exit(data);
-			if (nums[1] != data->pile_b[0])
-				push_to_top_pile(data, nums[1], BRAVO);
-			free(nums);
+			// printf("compare pile B and interval[0] et interval[1]\n");
+			// display_pile(data);
+			// printf("interval[0] : %i et interval[1] : %i\n", interval[0], interval[1]);
+			if (interval[1] != data->pile_b[0])
+				push_to_top_pile(data, interval[1], BRAVO);
+			free(interval);
+			interval = NULL;
 		}
 		pa(data, data->pile_a, data->pile_b);
 	}

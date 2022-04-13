@@ -6,7 +6,7 @@
 /*   By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:21:25 by cjulienn          #+#    #+#             */
-/*   Updated: 2022/04/13 12:04:04 by cjulienn         ###   ########.fr       */
+/*   Updated: 2022/04/13 18:09:47 by cjulienn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static void	find_biggest(int *pile, int *int_arr)
 
 	biggest = INT_MIN;
 	i = 0;
-	while (pile && pile[i])
+	while (pile[i])
 	{
 		if (biggest < pile[i])
 			biggest = pile[i];
@@ -61,7 +61,7 @@ static void	find_smallest(int *pile, int *int_arr)
 
 	smallest = INT_MAX;
 	i = 0;
-	while (pile && pile[i])
+	while (pile[i])
 	{
 		if (smallest > pile[i])
 			smallest = pile[i];

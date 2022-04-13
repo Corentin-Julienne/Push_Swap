@@ -6,7 +6,7 @@
 /*   By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 16:36:08 by cjulienn          #+#    #+#             */
-/*   Updated: 2022/04/13 13:16:21 by cjulienn         ###   ########.fr       */
+/*   Updated: 2022/04/13 18:13:50 by cjulienn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,6 @@ int	distance_to_top_pile(int value, t_data *data, int a_or_b) // yet to test
 	int			dst_from_up;
 	int			*pile;
 
-	printf("num : %i\n", value);
-	display_pile(data);
 	if (a_or_b == ALPHA)
 	{
 		pile_size = data->size_a;
@@ -83,13 +81,16 @@ void	push_to_top_pile(t_data *data, int num, int pile_id) // yet to test
 		&& distance_to_top_pile(num, data, BRAVO) == UP)
 	{
 		while (data->pile_b && data->pile_b[0] != num)
-			rab(data, data->pile_b, BRAVO);
+			rab(data, data->pile_b, BRAVO);			
 	}
 	else if (pile_id == BRAVO
 		&& distance_to_top_pile(num, data, BRAVO) == DOWN)
 	{
 		while (data->pile_b && data->pile_b[0] != num)
+		{
 			rrab(data, data->pile_b, BRAVO);
+			sleep(1);
+		}
 	}
 }
 

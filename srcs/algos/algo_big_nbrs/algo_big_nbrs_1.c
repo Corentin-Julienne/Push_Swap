@@ -6,7 +6,7 @@
 /*   By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 15:33:46 by cjulienn          #+#    #+#             */
-/*   Updated: 2022/04/13 13:02:24 by cjulienn         ###   ########.fr       */
+/*   Updated: 2022/04/13 17:00:02 by cjulienn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,6 @@ static void	process_chunk(t_data *data, int chunk_len,
 	while (chunk_len > 0)
 	{
 		num_to_push_up = scan_number(data, index_start, index_end);
-		printf("scanned num : %i\n", num_to_push_up);
-		sleep(2);
 		push_to_top_pile(data, num_to_push_up, ALPHA);
 		organize_pile_bravo(data);
 		chunk_len--;
@@ -114,8 +112,6 @@ void	algo_big_nums(t_data *data)
 	last_chunk = data->stack_size % reps;
 	index_start = 0;
 	index_end = chunk_len - 1;
-	printf("reps : %i, index_start : %i, index_end : %i chunk_len : %i\n",
-		reps, index_start, index_end, chunk_len);
 	while (reps > 0)
 	{
 		process_chunk(data, chunk_len, index_start, index_end);
