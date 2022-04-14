@@ -6,7 +6,7 @@
 /*   By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 16:36:08 by cjulienn          #+#    #+#             */
-/*   Updated: 2022/04/13 18:13:50 by cjulienn         ###   ########.fr       */
+/*   Updated: 2022/04/14 15:32:36 by cjulienn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,10 +87,7 @@ void	push_to_top_pile(t_data *data, int num, int pile_id) // yet to test
 		&& distance_to_top_pile(num, data, BRAVO) == DOWN)
 	{
 		while (data->pile_b && data->pile_b[0] != num)
-		{
 			rrab(data, data->pile_b, BRAVO);
-			sleep(1);
-		}
 	}
 }
 

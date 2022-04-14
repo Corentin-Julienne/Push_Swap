@@ -6,7 +6,7 @@
 /*   By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:21:25 by cjulienn          #+#    #+#             */
-/*   Updated: 2022/04/14 15:09:00 by cjulienn         ###   ########.fr       */
+/*   Updated: 2022/04/14 15:26:59 by cjulienn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,18 +38,19 @@ void	handle_outside_interval(t_data *data, int *interval) // yet to test
 index 0 refers to smallest num in the stack 
 while index 1 refers to the  biggest  */
 
-static int	find_biggest(const int *pile)
+static int	find_biggest(const int *pile, int stack_size)
 {
 	int		biggest;
 	int		i;
 
 	i = 0;
-	while (pile[i])
+	while (i < stack_size)
 	{
 		if (i == 0)
 		{
 			biggest = pile[i];
-			i++;
+			if (stack_size >= 2)
+				i++;
 		}
 		if (biggest < pile[i])
 			biggest = pile[i];
@@ -58,18 +59,19 @@ static int	find_biggest(const int *pile)
 	return (biggest);
 }
 
-static int find_smallest(const int *pile)
+static int find_smallest(const int *pile, int stack_size)
 {
 	int		smallest;
 	int		i;
 
 	i = 0;
-	while (pile[i])
+	while (i < stack_size)
 	{
 		if (i == 0)
 		{
 			smallest = pile[i];
-			i++;
+			if (stack_size >= 2)
+				i++;
 		}
 		if (smallest > pile[i])
 			smallest = pile[i];
@@ -82,15 +84,22 @@ int	*find_interval(t_data *data, int a_or_b)
 {
 	int			*int_arr;
 	int			*pile;
+	int			stack_size;
 
 	if (a_or_b == ALPHA)
+	{
 		pile = data->pile_a;
+		stack_size = data->size_a;
+	}	
 	else
+	{
 		pile = data->pile_b;
+		stack_size = data->size_b;
+	}
 	int_arr = (int *)malloc(sizeof(int) * 2);
 	if (!int_arr)
 		return (NULL);
-	int_arr[0] = find_smallest(pile);
-	int_arr[1] = find_biggest(pile);
+	int_arr[0] = find_smallest(pile, stack_size);
+	int_arr[1] = find_biggest(pile, stack_size);
 	return (int_arr);
 }

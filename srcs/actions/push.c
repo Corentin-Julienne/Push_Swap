@@ -6,7 +6,7 @@
 /*   By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 12:01:15 by cjulienn          #+#    #+#             */
-/*   Updated: 2022/04/14 15:19:44 by cjulienn         ###   ########.fr       */
+/*   Updated: 2022/04/14 15:29:57 by cjulienn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,18 @@ Do nothing if A is empty.
 
 */
 
-static void	replace_piles(t_data *data, int *updt_a, int *updt_b) // to be tested
+static void	replace_piles(t_data *data, int *updt_a, int *updt_b)
 {
 	if (data->pile_a)
+	{
 		free(data->pile_a);
+		data->pile_a = NULL;
+	}
 	if (data->pile_b)
+	{
 		free(data->pile_b);
+		data->pile_b = NULL;
+	}
 	data->pile_a = updt_a;
 	data->pile_b = updt_b;
 }
@@ -96,7 +102,7 @@ int	pa(t_data *data, int *pile_a, int *pile_b)
 	return (0);
 }
 
-int	pb(t_data *data, int *pile_a, int *pile_b) // tested
+int	pb(t_data *data, int *pile_a, int *pile_b)
 {
 	int		*updt_b;
 	int		*updt_a;

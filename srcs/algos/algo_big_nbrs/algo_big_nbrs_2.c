@@ -6,7 +6,7 @@
 /*   By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 18:56:01 by cjulienn          #+#    #+#             */
-/*   Updated: 2022/04/14 14:53:22 by cjulienn         ###   ########.fr       */
+/*   Updated: 2022/04/14 15:31:12 by cjulienn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,8 +92,6 @@ int	organize_pile_bravo(t_data *data) // yet to test
 		return (0);
 	}
 	gd_num = find_good_pos(data);
-	printf("good num is : %i\n", gd_num);
-	sleep(2);
 	if (gd_num != -1)
 		push_to_top_pile(data, gd_num, BRAVO);
 	pb(data, data->pile_a, data->pile_b);
@@ -115,9 +113,6 @@ void	empty_pile_bravo(t_data *data) // yet to test
 			interval = find_interval(data, BRAVO);
 			if (!interval)
 				free_stacks_and_exit(data);
-			// printf("compare pile B and interval[0] et interval[1]\n");
-			// display_pile(data);
-			// printf("interval[0] : %i et interval[1] : %i\n", interval[0], interval[1]);
 			if (interval[1] != data->pile_b[0])
 				push_to_top_pile(data, interval[1], BRAVO);
 			free(interval);
