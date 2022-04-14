@@ -6,7 +6,7 @@
 /*   By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 15:33:46 by cjulienn          #+#    #+#             */
-/*   Updated: 2022/04/13 17:00:02 by cjulienn         ###   ########.fr       */
+/*   Updated: 2022/04/14 14:49:38 by cjulienn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,8 @@ void	algo_big_nums(t_data *data)
 	last_chunk = data->stack_size % reps;
 	index_start = 0;
 	index_end = chunk_len - 1;
+	display_pile(data);
+	sleep(3);
 	while (reps > 0)
 	{
 		process_chunk(data, chunk_len, index_start, index_end);

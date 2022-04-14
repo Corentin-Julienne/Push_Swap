@@ -6,7 +6,7 @@
 /*   By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:21:25 by cjulienn          #+#    #+#             */
-/*   Updated: 2022/04/13 18:09:47 by cjulienn         ###   ########.fr       */
+/*   Updated: 2022/04/14 15:09:00 by cjulienn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,36 +38,44 @@ void	handle_outside_interval(t_data *data, int *interval) // yet to test
 index 0 refers to smallest num in the stack 
 while index 1 refers to the  biggest  */
 
-static void	find_biggest(int *pile, int *int_arr)
+static int	find_biggest(const int *pile)
 {
 	int		biggest;
 	int		i;
 
-	biggest = INT_MIN;
 	i = 0;
 	while (pile[i])
 	{
+		if (i == 0)
+		{
+			biggest = pile[i];
+			i++;
+		}
 		if (biggest < pile[i])
 			biggest = pile[i];
 		i++;
 	}
-	int_arr[1] = biggest;
+	return (biggest);
 }
 
-static void	find_smallest(int *pile, int *int_arr)
+static int find_smallest(const int *pile)
 {
 	int		smallest;
 	int		i;
 
-	smallest = INT_MAX;
 	i = 0;
 	while (pile[i])
 	{
+		if (i == 0)
+		{
+			smallest = pile[i];
+			i++;
+		}
 		if (smallest > pile[i])
 			smallest = pile[i];
 		i++;
 	}
-	int_arr[0] = smallest;
+	return (smallest);
 }
 
 int	*find_interval(t_data *data, int a_or_b)
@@ -82,7 +90,7 @@ int	*find_interval(t_data *data, int a_or_b)
 	int_arr = (int *)malloc(sizeof(int) * 2);
 	if (!int_arr)
 		return (NULL);
-	find_smallest(pile, int_arr);
-	find_biggest(pile, int_arr);
+	int_arr[0] = find_smallest(pile);
+	int_arr[1] = find_biggest(pile);
 	return (int_arr);
 }

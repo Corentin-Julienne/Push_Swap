@@ -6,7 +6,7 @@
 /*   By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 18:56:01 by cjulienn          #+#    #+#             */
-/*   Updated: 2022/04/13 18:15:28 by cjulienn         ###   ########.fr       */
+/*   Updated: 2022/04/14 14:53:22 by cjulienn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,8 @@ int	organize_pile_bravo(t_data *data) // yet to test
 		return (0);
 	}
 	gd_num = find_good_pos(data);
+	printf("good num is : %i\n", gd_num);
+	sleep(2);
 	if (gd_num != -1)
 		push_to_top_pile(data, gd_num, BRAVO);
 	pb(data, data->pile_a, data->pile_b);
