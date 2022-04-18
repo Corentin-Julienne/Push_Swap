@@ -1,0 +1,1 @@
+=> non functionnal when contains 0

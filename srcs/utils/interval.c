@@ -6,7 +6,7 @@
 /*   By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:21:25 by cjulienn          #+#    #+#             */
-/*   Updated: 2022/04/14 15:26:59 by cjulienn         ###   ########.fr       */
+/*   Updated: 2022/04/18 17:23:32 by cjulienn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	handle_within_interval(t_data *data)
 /* when outside interval, push num at the top of pile B to top of pile A,
 then check if sorted. if not, just rotate the num at the bottom of pile A */
 
-void	handle_outside_interval(t_data *data, int *interval) // yet to test
+void	handle_outside_interval(t_data *data, int *interval)
 {
 	pa(data, data->pile_a, data->pile_b);
 	if (data->pile_a[0] > interval[0])

@@ -6,7 +6,7 @@
 /*   By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/06 15:55:29 by cjulienn          #+#    #+#             */
-/*   Updated: 2022/04/14 15:45:55 by cjulienn         ###   ########.fr       */
+/*   Updated: 2022/04/18 16:55:32 by cjulienn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,9 @@ int	main(int argc, char **argv)
 	t_data		*data;
 	char		**input;
 
-	atexit(leaks_tracking);
+	// atexit(leaks_tracking);
 	if (argc == 1)
-	{
-		ft_printf("\n");
 		exit(EXIT_SUCCESS);
-	}
 	data = (t_data *)malloc(sizeof(t_data));
 	if (!data)
 		error_and_exit(NULL);

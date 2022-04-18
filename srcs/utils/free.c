@@ -6,7 +6,7 @@
 /*   By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 16:29:30 by cjulienn          #+#    #+#             */
-/*   Updated: 2022/04/12 11:21:49 by cjulienn         ###   ########.fr       */
+/*   Updated: 2022/04/18 16:28:10 by cjulienn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	error_and_exit(t_data *data)
 	if (data != NULL)
 		free(data);
 	err_msg = "Error\n";
-	write(STDERR_FILENO, err_msg, ft_strlen(err_msg));
+	ft_putstr_fd(err_msg, STDERR_FILENO);
 	exit(EXIT_FAILURE);
 }
 
@@ -55,7 +55,7 @@ void	suppress_leaks_bfr_exit(t_data *data)
 	free(data);
 }
 
-void	free_split(char **split) // functionnal
+void	free_split(char **split)
 {
 	int		i;
 
