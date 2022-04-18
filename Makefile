@@ -6,7 +6,7 @@
 #    By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/06 16:06:37 by cjulienn          #+#    #+#              #
-#    Updated: 2022/04/15 12:05:29 by cjulienn         ###   ########.fr        #
+#    Updated: 2022/04/18 20:25:02 by cjulienn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,6 @@ SRCS= ./srcs/actions/push.c \
 	  ./srcs/args_processing/check_args_validity_1.c \
 	  ./srcs/args_processing/check_args_validity_2.c \
 	  ./srcs/args_processing/format_input.c \
-	  ./srcs/utils/algo_utils.c \
 	  ./srcs/utils/free.c \
 	  ./srcs/utils/interval.c \
 	  ./srcs/utils/manage_stacks.c \

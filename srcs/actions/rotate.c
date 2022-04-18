@@ -6,7 +6,7 @@
 /*   By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 12:01:17 by cjulienn          #+#    #+#             */
-/*   Updated: 2022/04/18 17:59:34 by cjulienn         ###   ########.fr       */
+/*   Updated: 2022/04/18 19:24:20 by cjulienn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,12 @@ int	rrab(t_data *data, int *pile, int a_or_b)
 	int		last_index;
 	int		i;
 
-	if (!pile || !pile[0] || !pile[1])
-		return (1);
 	if (a_or_b == ALPHA)
 		last_index = data->size_a - 1;
 	else
 		last_index = data->size_b - 1;
+	if (last_index < 1)
+		return (1);
 	tmp_last = pile[last_index];
 	i = last_index;
 	while (i >= 0)
@@ -76,12 +76,12 @@ int	rab(t_data *data, int *pile, int a_or_b)
 	int		stack_size;
 	int		i;
 
-	if (!pile || !pile[0] || !pile[1])
-		return (1);
 	if (a_or_b == ALPHA)
 		stack_size = data->size_a;
 	else
 		stack_size = data->size_b;
+	if (stack_size < 2)
+		return (1);
 	tmp_first = pile[0];
 	i = 0;
 	while (i < stack_size)

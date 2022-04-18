@@ -6,7 +6,7 @@
 /*   By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/06 16:07:27 by cjulienn          #+#    #+#             */
-/*   Updated: 2022/04/12 16:18:59 by cjulienn         ###   ########.fr       */
+/*   Updated: 2022/04/18 20:25:56 by cjulienn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ void		algo_case_two_nums(t_data *data);
 void		algo_case_three_nums(t_data *data, int *pile_a);
 /* algo_case_4.c */
 void		algo_case_four_nums(t_data *data);
+void		sort_param_top_b(t_data *data, int *pile_a);
 /* algo_case_5.c*/
 void		algo_case_five_nums(t_data *data);
 
@@ -85,8 +86,6 @@ char		**format_input(int argc, char **argv, t_data *data);
 
 /* UTILS */
 
-/* algo_utils.c */
-void		sort_param_top_b(t_data *data, int *pile_a);
 /* free.c */
 void		error_and_exit(t_data *data);
 void		free_stacks_and_exit(t_data *data);

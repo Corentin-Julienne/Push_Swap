@@ -6,13 +6,13 @@
 /*   By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 12:01:15 by cjulienn          #+#    #+#             */
-/*   Updated: 2022/04/18 18:00:14 by cjulienn         ###   ########.fr       */
+/*   Updated: 2022/04/18 19:52:11 by cjulienn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-/* 
+/*
 
 pa : push a - take the first element at the top of b and put it at the top of a 
 Do nothing if B is empty.
@@ -80,7 +80,7 @@ int	pa(t_data *data, int *pile_a, int *pile_b)
 	int		*updt_b;
 	int		i;
 
-	if (!pile_b)
+	if (data->size_b == 0)
 		return (1);
 	updt_b = NULL;
 	data->size_a++;
@@ -108,7 +108,7 @@ int	pb(t_data *data, int *pile_a, int *pile_b)
 	int		*updt_a;
 	int		i;
 
-	if (!pile_a)
+	if (data->size_a == 0)
 		return (1);
 	updt_a = NULL;
 	data->size_b++;

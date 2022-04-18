@@ -6,7 +6,7 @@
 /*   By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 14:52:01 by cjulienn          #+#    #+#             */
-/*   Updated: 2022/04/18 17:59:46 by cjulienn         ###   ########.fr       */
+/*   Updated: 2022/04/18 19:26:16 by cjulienn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,13 @@ ss : sa and sb at the same time.
 int	sab(t_data *data, int a_or_b, int *pile)
 {
 	int		num_tmp;
+	int		stack_size;
 
-	if (!pile || !pile[0] || !pile[1])
+	if (a_or_b == ALPHA)
+		stack_size = data->size_a;
+	else
+		stack_size = data->size_b;
+	if (stack_size < 2)
 		return (1);
 	num_tmp = pile[0];
 	pile[0] = pile[1];

@@ -6,7 +6,7 @@
 /*   By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 15:41:57 by cjulienn          #+#    #+#             */
-/*   Updated: 2022/04/18 18:00:35 by cjulienn         ###   ########.fr       */
+/*   Updated: 2022/04/18 20:26:54 by cjulienn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,23 +18,25 @@ then apply algo for three nums on pile A
 
 void	algo_case_five_nums(t_data *data)
 {
-	int			i;
-	int			*interval;
-
+	data->pile_begin = int_arr_dup(data->pile_a, data->size_a);
+	if (!data->pile_begin)
+		free_stacks_and_exit(data);
 	pb(data, data->pile_a, data->pile_b);
-	pb(data, data->pile_a, data->pile_b);
-	algo_case_three_nums(data, data->pile_a);
-	i = 0;
-	while (i < 2)
-	{
-		interval = find_interval(data, ALPHA);
-		if (!interval)
-			free_stacks_and_exit(data);
-		if (data->pile_b[0] < interval[0] || data->pile_b[0] > interval[1])
-			handle_outside_interval(data, interval);
-		else
-			handle_within_interval(data);
-		i++;
-		free(interval);
-	}
+	algo_case_four_nums(data);
+	pa(data, data->pile_a, data->pile_b);
 }
+
+// i = 0;
+	// while (i < 2)
+	// {
+	// 	interval = find_interval(data, ALPHA);
+	// 	if (!interval)
+	// 		free_stacks_and_exit(data);
+	// 	if (data->pile_b[0] < interval[0] || data->pile_b[0] > interval[1])
+	// 		handle_outside_interval(data, interval);
+	// 	else
+	// 		handle_within_interval(data);
+	// 	i++;
+	// 	free(interval);
+	// }
+	

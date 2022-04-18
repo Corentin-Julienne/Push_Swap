@@ -6,7 +6,7 @@
 /*   By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 15:33:46 by cjulienn          #+#    #+#             */
-/*   Updated: 2022/04/18 18:01:30 by cjulienn         ###   ########.fr       */
+/*   Updated: 2022/04/18 19:43:01 by cjulienn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ static int	calc_chunk_num(t_data *data)
 	else if (data->stack_size >= 100 && data->stack_size < 500)
 		return (5);
 	else
-		return (15);
+		return (11);
 }
 
 /* used for big nums ( > 5)
