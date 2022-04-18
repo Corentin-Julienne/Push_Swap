@@ -6,7 +6,7 @@
 /*   By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:21:25 by cjulienn          #+#    #+#             */
-/*   Updated: 2022/04/18 17:23:32 by cjulienn         ###   ########.fr       */
+/*   Updated: 2022/04/18 18:02:15 by cjulienn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static int	find_biggest(const int *pile, int stack_size)
 	return (biggest);
 }
 
-static int find_smallest(const int *pile, int stack_size)
+static int	find_smallest(const int *pile, int stack_size)
 {
 	int		smallest;
 	int		i;

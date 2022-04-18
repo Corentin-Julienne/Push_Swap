@@ -6,7 +6,7 @@
 /*   By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 18:56:01 by cjulienn          #+#    #+#             */
-/*   Updated: 2022/04/18 14:08:52 by cjulienn         ###   ########.fr       */
+/*   Updated: 2022/04/18 18:01:14 by cjulienn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static int	handle_case_interval(t_data *data, int num)
 /* return -1 if no change are to made in pile B order
 return the position to put in  the top of pile B if changes are needed */
 
-static int	find_good_pos(t_data *data) // problem here
+static int	find_good_pos(t_data *data)
 {
 	int			target_pos;
 	int			gd_num;
@@ -82,7 +82,7 @@ static int	find_good_pos(t_data *data) // problem here
 to insert the num in top of pile A in a sorted way,
 then push this num in top of pile B */
 
-int	organize_pile_bravo(t_data *data) // yet to test
+int	organize_pile_bravo(t_data *data)
 {	
 	int			gd_num;
 
@@ -102,7 +102,7 @@ int	organize_pile_bravo(t_data *data) // yet to test
 move it to the top, and push it over to Stack A.
 Repeat this until Stack B is empty.*/
 
-void	empty_pile_bravo(t_data *data) // yet to test
+void	empty_pile_bravo(t_data *data)
 {
 	int		*interval;
 

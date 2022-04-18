@@ -6,7 +6,7 @@
 /*   By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 12:01:17 by cjulienn          #+#    #+#             */
-/*   Updated: 2022/04/12 18:18:54 by cjulienn         ###   ########.fr       */
+/*   Updated: 2022/04/18 17:59:34 by cjulienn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ rr : ra and rb at the same time.
 
 */
 
-static int	rotate_feedback(int direction, int a_or_b, t_data *data) // seems functionnal
+static int	rotate_feedback(int direction, int a_or_b, t_data *data)
 {
 	if (a_or_b == ALPHA && direction == REVERSE)
 		msg_writer(STDOUT_FILENO, "rra\n", data);
@@ -47,12 +47,12 @@ static int	rotate_feedback(int direction, int a_or_b, t_data *data) // seems fun
 	return (0);
 }
 
-int	rrab(t_data *data, int *pile, int a_or_b) // tested
+int	rrab(t_data *data, int *pile, int a_or_b)
 {
 	int		tmp_last;
 	int		last_index;
 	int		i;
-	
+
 	if (!pile || !pile[0] || !pile[1])
 		return (1);
 	if (a_or_b == ALPHA)
@@ -70,12 +70,12 @@ int	rrab(t_data *data, int *pile, int a_or_b) // tested
 	return (rotate_feedback(REVERSE, a_or_b, data));
 }
 
-int	rab(t_data *data, int *pile, int a_or_b) // tested
+int	rab(t_data *data, int *pile, int a_or_b)
 {
 	int		tmp_first;
 	int		stack_size;
 	int		i;
-	
+
 	if (!pile || !pile[0] || !pile[1])
 		return (1);
 	if (a_or_b == ALPHA)
@@ -93,7 +93,7 @@ int	rab(t_data *data, int *pile, int a_or_b) // tested
 	return (rotate_feedback(CLOCK, a_or_b, data));
 }
 
-int	rr(t_data *data, int *pile_a, int *pile_b) // seems functionnal
+int	rr(t_data *data, int *pile_a, int *pile_b)
 {
 	int		res_ra;
 	int		res_rb;
@@ -106,7 +106,7 @@ int	rr(t_data *data, int *pile_a, int *pile_b) // seems functionnal
 	return (0);
 }
 
-int	rrr(t_data *data, int *pile_a, int *pile_b) // seems functionnal
+int	rrr(t_data *data, int *pile_a, int *pile_b)
 {
 	int		res_ra;
 	int		res_rb;

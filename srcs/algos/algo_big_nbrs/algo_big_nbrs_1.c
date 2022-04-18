@@ -6,7 +6,7 @@
 /*   By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 15:33:46 by cjulienn          #+#    #+#             */
-/*   Updated: 2022/04/18 12:40:09 by cjulienn         ###   ########.fr       */
+/*   Updated: 2022/04/18 18:01:30 by cjulienn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	rtn_number_index(int dist_up, int dist_down,
 /* scan number returns the first number from the index which pertains
 to the chunk and which is the closest from the top of pile a */
 
-static int	scan_number(t_data *data, int index_start, int index_end) // yet to test
+static int	scan_number(t_data *data, int index_start, int index_end)
 {
 	int			dist_up;
 	int			dist_down;
@@ -65,7 +65,7 @@ static void	process_chunk(t_data *data, int chunk_len,
 	{
 		num_to_push_up = scan_number(data, index_start, index_end);
 		push_to_top_pile(data, num_to_push_up, ALPHA);
-		organize_pile_bravo(data); // fucked up function
+		organize_pile_bravo(data);
 		chunk_len--;
 	}
 }
@@ -74,7 +74,7 @@ static void	process_chunk(t_data *data, int chunk_len,
 to sort pile A. So calc_chunk_num return the num of reps,
 depending of the size of pile A */
 
-static int	calc_chunk_num(t_data *data) // functionnal
+static int	calc_chunk_num(t_data *data)
 {
 	if (data->stack_size <= 20)
 		return (1);

@@ -6,7 +6,7 @@
 /*   By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 16:54:58 by cjulienn          #+#    #+#             */
-/*   Updated: 2022/04/13 12:05:15 by cjulienn         ###   ########.fr       */
+/*   Updated: 2022/04/18 18:02:45 by cjulienn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@
 then until not sorted, rotate until sorted. Use an algo
 to check what direction use the less moves */
 
-void	sort_param_top_b(t_data *data, int *pile_a) // yet to test
+void	sort_param_top_b(t_data *data, int *pile_a)
 {
 	while (42)
 	{
 		if (check_if_already_sorted(pile_a, data->size_a) == 0)
 		{
 			if (distance_from_sorted_pos(data->pile_a[0], data,
-				data->pile_a, ALPHA) == CLOCK)
+					data->pile_a, ALPHA) == CLOCK)
 				rab(data, data->pile_a, ALPHA);
 			else
 				rrab(data, data->pile_a, ALPHA);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   actions_3.c                                        :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 14:52:01 by cjulienn          #+#    #+#             */
-/*   Updated: 2022/04/11 14:52:53 by cjulienn         ###   ########.fr       */
+/*   Updated: 2022/04/18 17:59:46 by cjulienn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ ss : sa and sb at the same time.
 
 */
 
-int	sab(t_data *data, int a_or_b, int *pile) // seems functionnal
+int	sab(t_data *data, int a_or_b, int *pile)
 {
 	int		num_tmp;
-	
+
 	if (!pile || !pile[0] || !pile[1])
 		return (1);
 	num_tmp = pile[0];
@@ -42,7 +42,7 @@ int	sab(t_data *data, int a_or_b, int *pile) // seems functionnal
 	return (0);
 }
 
-int	ss(t_data *data, int *pile_a, int *pile_b) // seems functionnal
+int	ss(t_data *data, int *pile_a, int *pile_b)
 {
 	int		res_a;
 	int		res_b;

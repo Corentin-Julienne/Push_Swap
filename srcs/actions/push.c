@@ -6,7 +6,7 @@
 /*   By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 12:01:15 by cjulienn          #+#    #+#             */
-/*   Updated: 2022/04/14 15:29:57 by cjulienn         ###   ########.fr       */
+/*   Updated: 2022/04/18 18:00:14 by cjulienn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int	pa(t_data *data, int *pile_a, int *pile_b)
 	int		*updt_a;
 	int		*updt_b;
 	int		i;
-	
+
 	if (!pile_b)
 		return (1);
 	updt_b = NULL;
@@ -94,7 +94,7 @@ int	pa(t_data *data, int *pile_a, int *pile_b)
 	while (i < data->size_b)
 	{
 		updt_b[i] = pile_b[i + 1];
-		i++;	
+		i++;
 	}
 	replace_piles(data, updt_a, updt_b);
 	msg_writer(STDOUT_FILENO, "pa\n", data);
@@ -107,7 +107,7 @@ int	pb(t_data *data, int *pile_a, int *pile_b)
 	int		*updt_b;
 	int		*updt_a;
 	int		i;
-	
+
 	if (!pile_a)
 		return (1);
 	updt_a = NULL;
