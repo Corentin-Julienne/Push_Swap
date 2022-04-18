@@ -6,7 +6,7 @@
 /*   By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 15:33:46 by cjulienn          #+#    #+#             */
-/*   Updated: 2022/04/14 15:35:06 by cjulienn         ###   ########.fr       */
+/*   Updated: 2022/04/18 12:40:09 by cjulienn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static void	process_chunk(t_data *data, int chunk_len,
 	{
 		num_to_push_up = scan_number(data, index_start, index_end);
 		push_to_top_pile(data, num_to_push_up, ALPHA);
-		organize_pile_bravo(data);
+		organize_pile_bravo(data); // fucked up function
 		chunk_len--;
 	}
 }

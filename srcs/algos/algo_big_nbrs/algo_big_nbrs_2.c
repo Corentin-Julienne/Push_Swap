@@ -6,7 +6,7 @@
 /*   By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 18:56:01 by cjulienn          #+#    #+#             */
-/*   Updated: 2022/04/14 15:31:12 by cjulienn         ###   ########.fr       */
+/*   Updated: 2022/04/18 14:08:52 by cjulienn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int	handle_case_interval(t_data *data, int num)
 	i = 0;
 	if (num < interval[0] || num > interval[1])
 	{
-		while (data->pile_b[i])
+		while (i < data->size_b)
 		{
 			if (data->pile_b[i] == interval[0])
 			{
@@ -62,7 +62,7 @@ static int	find_good_pos(t_data *data) // problem here
 	target_pos = get_sorted_pos(data, data->pile_a[0]);
 	diff = 0;
 	i = 0;
-	while (data->pile_b && data->pile_b[i])
+	while (data->pile_b && i < data->size_b)
 	{
 		if (get_sorted_pos(data, data->pile_b[i]) > target_pos
 			&& ((get_sorted_pos(data, data->pile_b[i]) - target_pos) < diff

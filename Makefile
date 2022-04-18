@@ -6,7 +6,7 @@
 #    By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/06 16:06:37 by cjulienn          #+#    #+#              #
-#    Updated: 2022/04/12 16:33:51 by cjulienn         ###   ########.fr        #
+#    Updated: 2022/04/15 12:05:29 by cjulienn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ LIBFT_LIB = libft.a
 LIBFT_PATH = ./libft/
 
 CC= gcc
-CFLAGS= -Wall -Wextra -Werror -I$(INCLUDE_PATH)
+CFLAGS= -Wall -Wextra -Werror -g -I$(INCLUDE_PATH)
 
 RM= rm -f
 
@@ -50,8 +50,7 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -Llibft -lft -o $(NAME)
 	@echo $(NAME) successfully made !!!
 
-all: 
-	$(NAME)
+all: $(NAME)
 
 clean:
 	$(MAKE) -C $(LIBFT_PATH) clean
