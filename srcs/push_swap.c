@@ -6,7 +6,7 @@
 /*   By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/06 15:55:29 by cjulienn          #+#    #+#             */
-/*   Updated: 2022/04/18 20:18:21 by cjulienn         ###   ########.fr       */
+/*   Updated: 2022/04/19 12:39:52 by cjulienn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ int	main(int argc, char **argv)
 	t_data		*data;
 	char		**input;
 
-	// atexit(leaks_tracking);
 	if (argc == 1)
 		exit(EXIT_SUCCESS);
 	data = (t_data *)malloc(sizeof(t_data));
@@ -57,7 +56,7 @@ int	main(int argc, char **argv)
 		exit(EXIT_SUCCESS);
 	}
 	decision_tree(data, data->stack_size);
-	final_verifs(data);
+	// final_verifs(data);
 	suppress_leaks_bfr_exit(data);
 	return (0);
 }

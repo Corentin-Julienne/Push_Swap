@@ -6,7 +6,7 @@
 /*   By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 15:41:57 by cjulienn          #+#    #+#             */
-/*   Updated: 2022/04/19 12:11:58 by cjulienn         ###   ########.fr       */
+/*   Updated: 2022/04/19 12:16:36 by cjulienn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,3 @@ void	algo_case_five_nums(t_data *data)
 	rab(data, data->pile_a, ALPHA);
 	pa(data, data->pile_a, data->pile_b);
 }
-	

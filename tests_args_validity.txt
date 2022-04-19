@@ -58,7 +58,7 @@ expected output : normal
 ./push_swap 1 2 3 4 5 6 7 8 9 0
 expected output : normal
 
-// push_swap without arguments [SEGFAULT]
+// push_swap without arguments
 ./push_swap
 expected output : nothing but functionnal 
 
@@ -72,11 +72,11 @@ expected output : functionnal
 
 // push_swap with already sorted arguments 
 ./push_swap 12 34 56 78 98
-expected output : Error\n
+expected output : functionnal
 
 // push_swap with already sorted neg arguments
 ./push_swap -666 -555 -444 -333 -222 -111
-expected output : Error\n
+expected output : functionnal
 
 // push_swap with outside of int extremely large numbers
 ./push_swap 12335358638468850847238582347527358234075283052358 023828052383285523853208235080523802358 9 65 -44

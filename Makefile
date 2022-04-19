@@ -6,13 +6,12 @@
 #    By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/06 16:06:37 by cjulienn          #+#    #+#              #
-#    Updated: 2022/04/18 20:25:02 by cjulienn         ###   ########.fr        #
+#    Updated: 2022/04/19 12:36:41 by cjulienn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME= push_swap
 
-## debug utils to suppress before correction
 SRCS= ./srcs/actions/push.c \
 	  ./srcs/actions/rotate.c \
 	  ./srcs/actions/swap.c \
