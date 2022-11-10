@@ -6,11 +6,14 @@
 /*   By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/06 15:55:29 by cjulienn          #+#    #+#             */
-/*   Updated: 2022/04/19 12:39:52 by cjulienn         ###   ########.fr       */
+/*   Updated: 2022/05/11 13:44:27 by cjulienn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+/* this decision tree is used to choose the relevant algorithm
+depending of the size of the stack */
 
 static void	decision_tree(t_data *data, int arr_len)
 {
@@ -56,7 +59,6 @@ int	main(int argc, char **argv)
 		exit(EXIT_SUCCESS);
 	}
 	decision_tree(data, data->stack_size);
-	// final_verifs(data);
 	suppress_leaks_bfr_exit(data);
 	return (0);
 }

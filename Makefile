@@ -6,7 +6,7 @@
 #    By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/06 16:06:37 by cjulienn          #+#    #+#              #
-#    Updated: 2022/04/19 12:36:41 by cjulienn         ###   ########.fr        #
+#    Updated: 2022/05/11 13:45:56 by cjulienn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,8 +28,7 @@ SRCS= ./srcs/actions/push.c \
 	  ./srcs/utils/interval.c \
 	  ./srcs/utils/manage_stacks.c \
 	  ./srcs/utils/quick_sort.c \
-	  ./srcs/push_swap.c \
-	  ./srcs/debug/debug_utils.c
+	  ./srcs/push_swap.c
 	  
 OBJS = $(SRCS:.c=.o)
 
@@ -58,6 +57,7 @@ fclean:	clean
 	$(MAKE) -C $(LIBFT_PATH) fclean
 	$(RM) $(NAME)
 
-re:	fclean all
+re:	fclean
+	$(MAKE)
 
 .PHONY: all clean fclean re

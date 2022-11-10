@@ -6,7 +6,7 @@
 /*   By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 16:36:08 by cjulienn          #+#    #+#             */
-/*   Updated: 2022/04/18 18:05:10 by cjulienn         ###   ########.fr       */
+/*   Updated: 2022/05/12 03:16:12 by cjulienn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,6 @@ void	push_to_top_pile(t_data *data, int num, int pile_id)
 			rrab(data, data->pile_b, BRAVO);
 	}
 }
-
-/*  */
 
 int	distance_from_sorted_pos(int value, t_data *data, int *pile, int a_or_b)
 {

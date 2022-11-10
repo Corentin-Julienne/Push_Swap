@@ -6,7 +6,7 @@
 /*   By: cjulienn <cjulienn@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/06 16:07:27 by cjulienn          #+#    #+#             */
-/*   Updated: 2022/04/18 20:25:56 by cjulienn         ###   ########.fr       */
+/*   Updated: 2022/05/11 13:02:07 by cjulienn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,15 +111,5 @@ void		quicksort(int *nums, int begin, int end);
 
 /* push_swap.c */
 void		msg_writer(int fildes, char *msg, t_data *data);
-
-/* DEBUG UTILS : KILL BEFORE CORRECTION PROCESS*/
-
-/* debug_utils.c */
-void		*broken_malloc(void);
-void		leaks_tracking(void);
-void		msg_accept_input(void);
-void		is_stack_sorted(t_data *data, int pile_id);
-void		display_pile(t_data *data);
-void		final_verifs(t_data *data);
 
 #endif
