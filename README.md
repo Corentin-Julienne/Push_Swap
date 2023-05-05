@@ -11,9 +11,9 @@ Note that we need to sort the numbers with a minimal number of operations, not i
 
 The program will trigger an error message in those following cases :
 
--> numbers are already sorted
--> some arguments are not numbers
--> some numbers are duplicated
+-> numbers are already sorted <br>
+-> some arguments are not numbers <br>
+-> some numbers are duplicated <br>
 
 More information can be found on the subject PDF.
 
